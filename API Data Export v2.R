@@ -51,7 +51,7 @@ str(awards_data)
 
 #DATA FRAME INCLUDES COLUMN WITH A LIST, FLATTEN TO WRITE TO CSV
 awards_data <- listCol_l(awards_data, "recipient.business_categories")
-write.csv(awards_data, file="Raw API Data Export\\awards_data.csv", row.names = FALSE)
+write.csv(awards_data, file="awards_data.csv", row.names = FALSE)
 
 ########################################################
 # ENDPOINT: Federal Accounts
@@ -70,7 +70,7 @@ while(fedacct_api$page_metadata$has_next_page==TRUE){
 
 fedacct_data <- bind_rows(pages)
 names(fedacct_data)
-write.csv(fedacct_data, file="Raw API Data Export\\federalaccount_data.csv", row.names = FALSE)
+write.csv(fedacct_data, file="federalaccount_data.csv", row.names = FALSE)
 
 ########################################################
 # ENDPOINT: TAS - Treasury Appropriation Symbol (TAS) 
@@ -90,7 +90,7 @@ while(tas_api$page_metadata$has_next_page==TRUE){
 
 tas_data <- bind_rows(pages)
 names(tas_data)
-write.csv(tas_data, file="Raw API Data Export\\tas_data.csv", row.names = FALSE)
+write.csv(tas_data, file="tas_data.csv", row.names = FALSE)
 
 ########################################################
 # ENDPOINT: SubAward Data
@@ -112,7 +112,7 @@ subaward_data <- bind_rows(pages)
 names(sub_data)
 str(sub_data)
 subaward_data2 <- listCol_l(subaward_data, "recipient.business_categories")
-write.csv(subaward_data2, file="Raw API Data Export\\Subaward_data.csv", row.names = FALSE)
+write.csv(subaward_data2, file="Subaward_data.csv", row.names = FALSE)
 rm(sub_data, subaward_data)
 
 ########################################################
@@ -133,7 +133,7 @@ while(transact_api$page_metadata$has_next_page==TRUE){
 transact_data <- bind_rows(pages)
 str(transact_data)
 transact_data <- unnest(transact_data, recipient.business_categories)
-write.csv(transact_data, file="Raw API Data Export\\Transaction_Data.csv", row.names = FALSE)
+write.csv(transact_data, file="Transaction_Data.csv", row.names = FALSE)
 
 ########################################################
 # ENDPOINT: References Data
@@ -153,4 +153,4 @@ while(ref_api$page_metadata$has_next_page==TRUE){
 
 ref_data <- bind_rows(pages)
 str(ref_data)
-write.csv(ref_data, file="Raw API Data Export\\Reference_Data.csv", row.names = FALSE)
+write.csv(ref_data, file="Reference_Data.csv", row.names = FALSE)
