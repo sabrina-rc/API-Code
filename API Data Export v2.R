@@ -10,7 +10,7 @@ library(dplyr)
 library(tidyr)
 library(data.table)
 library(curl)
-setwd("C:\\Users\\sabrina.castro\\Documents\\R\\")
+setwd()
 
 ########################################################
 # ENDPOINT Account Awards
